@@ -9,6 +9,8 @@
 - Scanned exams and Jupyter notebook rendering are now controlled by the `scanned_exams.enabled` (renamed from `scanned_exams.enable`) and `nbconvert_enabled` settings (both enabled by default) (#8208)
 
 ### ✨ New features and improvements
+- Courses created through the API (`POST /api/courses`) are now connected to the autotester given by the `autotest.default_url` setting, unless the request includes its own `autotest_url` parameter (#8222)
+- Pre-filled the autotester url field on the admin course creation form with the `autotest.default_url` setting, so courses created by an admin are connected to the default autotester unless the field is changed (#8221)
 - Added JupyterLab integration course and assignment data endpoings (#8170)
 - Expanded the `markus:check` rake task to check that the dependencies of enabled features (scanned exams, Jupyter notebook rendering and RMarkdown conversion) are installed (#8208)
 - Added JupyterHub session tokens in `jupyter/create_session` route (#8135)
@@ -21,6 +23,7 @@
 - Added additional details to the account settings and renamed the Settings dropdown to Account (#8207)
 
 ### 🐛 Bug fixes
+- Fixed annotation markers being placed on the wrong page in printed PDFs when a submission has multiple PDF files (#8227)
 
 ### 📚 Documentation changes
 - Updated `README.md` links to point to the new documentation website (#8181)
